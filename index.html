@@ -154,7 +154,7 @@
         <h2 id="pickerTitle"></h2>
         <div id="visual-preview-modal" class="visual-box"></div>
         <div id="refresco-area" style="display:none; background:#222; padding:10px; border-radius:8px; margin-bottom:10px;">
-            <p><strong>Refresco 1.75LTS:</strong></p>
+            <p><strong>Refresco 2LTS:</strong></p>
             <select id="sel-refresco" onchange="updateCocaExtra()">
                 <option value="Sabor">Sabor (Cualquier sabor disponible.)</option>
     
@@ -281,7 +281,6 @@
     function updateCocaExtra() {
         const val = document.getElementById('sel-refresco').value;
         current.refresco = val;
-        current.extra = val === 'Coca' ? 15 : 0;
         current.price = current.basePrice + current.extra;
     }
 
