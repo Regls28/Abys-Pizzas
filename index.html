@@ -157,6 +157,7 @@
             <p><strong>Refresco 2LTS:</strong></p>
             <select id="sel-refresco" onchange="updateCocaExtra()">
                 <option value="Sabor">Sabor (Cualquier sabor disponible.)</option>
+                <option value="Coca">Coca Cola (+ $10.00)</option>
     
             </select>
         </div>
@@ -193,7 +194,7 @@
 
         <div id="info-pago-extra" style="display:none; background:#000; padding:15px; border-radius:8px; border:1px solid var(--yellow); margin:10px 0;">
             <p id="txt-pago-inst" style="font-size:0.85rem; margin:0;"></p>
-            <button id="btn-mp" class="btn" style="background:var(--blue); display:none;" onclick="window.open('https://link.mercadopago.com.mx/donrichipizzas', '_blank')">PAGAR AHORA</button>
+            <button id="btn-mp" class="btn" style="background:var(--blue); display:none;" onclick="window.open('https://https://link.mercadopago.com.mx/abyspizzas1', '_blank')">PAGAR AHORA</button>
         </div>
 
         <h2 id="total-final" style="text-align:right; color:var(--yellow); font-size:1.8rem;">Total: $0</h2>
@@ -240,7 +241,7 @@
     let current = null;
     let selectedPay = 'Efectivo';
     let userLocation = "No enviada";
-    const linkMP = "https://http://link.mercadopago.com.mx/pizzacherry91";
+    const linkMP = "https://http://https://link.mercadopago.com.mx/abyspizzas1";
 
     function openPicker(type, limit, allowed, price, hasRef = false) {
         current = { type, limit, basePrice: price, price: price, flavors: [], refresco: 'Sabor', extra: 0, hasRef };
@@ -281,6 +282,7 @@
     function updateCocaExtra() {
         const val = document.getElementById('sel-refresco').value;
         current.refresco = val;
+        current.extra = val === 'Coca' ? 10 : 0;
         current.price = current.basePrice + current.extra;
     }
 
