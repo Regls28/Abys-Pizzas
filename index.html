@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abys pizza - Ordena Aqui</title>
+    <title>Abys pizzas - Ordena Aqui</title>
     <style>
         :root {
             --red: #e8360edb; --dark: #210303; --gray: #250404; --yellow: #ffb703; --white: #ffffff; --green: #25d366; --blue: #009ee3;
@@ -157,7 +157,7 @@
             <p><strong>Refresco 2LTS:</strong></p>
             <select id="sel-refresco" onchange="updateCocaExtra()">
                 <option value="Sabor">Sabor (Cualquier sabor disponible.)</option>
-                <option value="Coca">Coca Cola (+ $10.00)</option>
+                <option value="Coca">Coca Cola (+ $15.00)</option>
     
             </select>
         </div>
@@ -202,7 +202,7 @@
         
         <button class="btn" style="background:var(--green); height:60px; font-size:1.2rem;" onclick="sendWhatsApp()">🚀 ENVIAR PEDIDO </button>
         <button class="btn btn-sel" onclick="closeCart()">Seguir Comprando</button>
-    </div>
+    </div>i
 </div>
 
 <div class="cart-bar" onclick="openCart()">
@@ -282,7 +282,7 @@
     function updateCocaExtra() {
         const val = document.getElementById('sel-refresco').value;
         current.refresco = val;
-        current.extra = val === 'Coca' ? 10 : 0;
+        current.extra = val === 'Coca' ? 15 : 0;
         current.price = current.basePrice + current.extra;
     }
 
@@ -310,7 +310,7 @@
 
         info.style.display = (m === 'Efectivo') ? 'none' : 'block';
         if(m === 'Transferencia') {
-            txt.innerHTML = "🏦 <strong>CLABE: 7229 6902 8108 0883 38 <br>🏦 STP (Pizza Cherry)</strong><br>Por favor enviar captura de tu pago.";
+            txt.innerHTML = "🏦 <strong>CLABE: 7229 6902 8108 0883 38 <br>🏦 STP (Abys pizza)</strong><br>Por favor enviar captura de tu pago.";
             btnMp.style.display = 'none';
         } else if(m === 'Tarjeta') {
             txt.innerHTML = "💳 <strong>Pago con Tarjeta:</strong> No olvides enviar tu comprobante.";
@@ -337,7 +337,7 @@
         const d = document.getElementById('c-dir').value;
         if(!n || !d) return alert("Faltan datos del cliente");
 
-        let msg = `*PIZZA CHERRY - PEDIDO*\n`;
+        let msg = `*Abys pizzas - Nuevo Pedido*\n`;
         msg += `Cliente: ${n}\nDir: ${d}\nCol: ${document.getElementById('c-colonia').value}\nZaguán: ${document.getElementById('c-zaguan').value} | Fachada: ${document.getElementById('c-fachada').value}\nGPS: ${userLocation}\n----------------\n`;
         cart.forEach(i => {
             msg += `• ${i.type}: ${i.flavors.join(' / ')} ${i.hasRef ? '(Ref: '+i.refresco+')' : ''}\n`;
