@@ -61,48 +61,48 @@
     <!-- PAQUETE 2: Con refresco (5 parámetros, el último es true) -->
     <div class="box-2x1" onclick="openPicker('Paquete 2', 1, 'ALL', 224, true)">
         <strong>PAQUETE 2</strong><br>$224<br>
-        <span style="font-size:0.8rem;">1 Pizza Familiar <br>+ Refresco 1.75Lts</span>
+        <span style="font-size:0.8rem;">1 Pizza Familiar <br>+ Refresco 2Lts</span>
     </div>
 
     <!-- PAQUETE 3: Con refresco -->
     <div class="box-2x1" onclick="openPicker('Paquete 3', 2, 'ALL', 315, true)">
         <strong>PAQUETE 3</strong><br>$315<br>
-        <span style="font-size:0.8rem;">2 Pizzas Grandes<br>+ Refresco 1.75Lts</span>
+        <span style="font-size:0.8rem;">2 Pizzas Grandes<br>+ Refresco 2Lts</span>
     </div>
 
     <!-- PAQUETE 4: Con refresco -->
     <div class="box-2x1" onclick="openPicker('Paquete 4', 3, 'ALL', 375, true)">
         <strong>PAQUETE 4</strong><br>$375<br>
-        <span style="font-size:0.8rem;">2 Pizzas Familiares<br>+ Refresco 1.75Lts</span>
+        <span style="font-size:0.8rem;">2 Pizzas Familiares<br>+ Refresco 2Lts</span>
     </div>
  </div>
 
                 
     <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza Rectangular</h2>
         <span class="price-badge">$385</span>
-        <p>24 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <p>24 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPicker('Pizza Rectangular', 4, 'ALL', 385, true, 'RECT4')">Elegir 4 sabores</button>
     </div>
 
                 
     <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza Barra</h2>
         <span class="price-badge">$255</span>
-        <p>12 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <p>12 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPicker('Pizza Barra', 2, 'ALL', 250, true, 'RECT')">Elegir 2 sabores</button>
     </div>
 
                 
     <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza Cuadrada</h2>
         <span class="price-badge">$315</span>
-        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPicker('Pizza Cuadrada', 2, 'ALL', 315, true, 'RECT')">Elegir 2 sabores</button>
     </div>
 
                
-    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza D2</h2>
+    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza De Dedos</h2>
         <span class="price-badge">$305</span>
-        <h3>Pizza D2</h3>
-        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <h3>Pizza De Dedos</h3>
+        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPicker('Pizza D2', 1, 'ALL', 305, true, 'RECT')">Elegir  sabor</button>
     </div>
 
@@ -110,7 +110,7 @@
     <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza De Corazon</h2>
         <span class="price-badge">$265</span>
         <h3>Pizza De Corazon</h3>
-        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPicker('Pizza Corazon', 1, 'ALL', 265, true, 'RECT')">Elegir  sabor</button>
     </div>
 
@@ -126,7 +126,7 @@
             <strong>GRANDE</strong><br>$305<br><span class="rebanadas">8 Rebanadas</span>
         </div>
         <div class="box-2x1" onclick="openPicker('2x1 Familiar', 2, 'ALL', 365, true)">
-            <strong>FAMILIAR</strong><br>$365<br><span class="rebanadas">12 Rebanadas + Refresco</span>
+            <strong>FAMILIAR</strong><br>$365<br><span class="rebanadas">12 Rebanadas</span>
         </div>
     </div>
 
@@ -157,7 +157,7 @@
             <p><strong>Refresco 1.75LTS:</strong></p>
             <select id="sel-refresco" onchange="updateCocaExtra()">
                 <option value="Sabor">Sabor (Cualquier sabor disponible.)</option>
-                <option value="Coca">Cambiar a Coca Cola (+ $15.00)</option>
+    
             </select>
         </div>
         <div id="flavorList" style="max-height:300px; overflow-y:auto; background:#000;"></div>
@@ -309,7 +309,7 @@
 
         info.style.display = (m === 'Efectivo') ? 'none' : 'block';
         if(m === 'Transferencia') {
-            txt.innerHTML = "🏦 <strong>CLABE: 7229 6901 0212 7908 18 <br>🏦 STP (Pizza Cherry)</strong><br>Por favor enviar captura de tu pago.";
+            txt.innerHTML = "🏦 <strong>CLABE: 7229 6902 8108 0883 38 <br>🏦 STP (Pizza Cherry)</strong><br>Por favor enviar captura de tu pago.";
             btnMp.style.display = 'none';
         } else if(m === 'Tarjeta') {
             txt.innerHTML = "💳 <strong>Pago con Tarjeta:</strong> No olvides enviar tu comprobante.";
@@ -349,7 +349,7 @@
             msg += `\n*Nota:* Comprobante adjunto en mi galería.`;
         }
         
-        window.open(`https://wa.me/+5231716992?text=${encodeURIComponent(msg)}`);
+        window.open(`https://wa.me/+525660728759?text=${encodeURIComponent(msg)}`);
     }
 
     function openCart() {
