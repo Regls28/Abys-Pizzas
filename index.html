@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABY'S PIZZA  - Ordena Aqui</title>
+    <title>Pizza Cherry - Ordena Aqui</title>
     <style>
         :root {
-            --red: #109910; --dark: #210303; --gray: #250404; --yellow: #ffb703; --white: #ffffff; --green: #25d366; --blue: #009ee3;
+            --red: #e8360edb; --dark: #210303; --gray: #250404; --yellow: #ffb703; --white: #ffffff; --green: #25d366; --blue: #009ee3;
         }
         body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--white); margin: 0; padding-bottom: 100px; }
         header { background: #000; padding: 25px; text-align: center; border-bottom: 4px solid var(--red); }
@@ -44,14 +44,14 @@
          <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">SUPER PROMOS</h2>
         <h3>3 Pizzas a elegir + Refresco 1.75 1.75Lts</h3>
         <div class="grid-2x1">
-            <button class="btn btn-sel" onclick="openPicker('P3 Mediana', 3, 'ALL', 335, true)">MEDIANAS $335</button>
-            <button class="btn btn-sel" onclick="openPicker('P3 Grande', 3, 'ALL', 395, true)">Grandes $395</button>
-            <button class="btn btn-sel" onclick="openPicker('P3 Familiar', 3, 'ALL', 515, true)">FAMILIARES $515</button>
+            <button class="btn btn-sel" onclick="openPicker('Super promos 3 Medianas', 3, 'ALL', 335, true)">3 Medianas $335</button>
+            <button class="btn btn-sel" onclick="openPicker('Super promos 3 Grandes', 3, 'ALL', 395, true)">3 Grandes $395</button>
+            <button class="btn btn-sel" onclick="openPicker('Super promos 3 Familiars', 3, 'ALL', 515, true)">3 Familiares $515</button>
         </div>  
     </div>
     <!-- PRODUCTOS -->
-           <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">paquete lo lleves</h2>
- <div class="grid-2x1">
+             <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">paquete lo lleves</h2>
+ <div class="grid-2x1">  
     <!-- PAQUETE 1: Sin refresco (solo 4 parámetros) -->
     <div class="box-2x1" onclick="openPicker('Paquete 1', 1, 'ALL', 175)">
         <strong>PAQUETE 1</strong><br>$175<br>
@@ -77,73 +77,74 @@
     </div>
  </div>
 
-    <div class="card">
+                
+    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza Rectangular</h2>
         <span class="price-badge">$385</span>
-        <h3> (Pizza Rectangular)</h3>
         <p>24 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
-        <button class="btn" onclick="openPicker('C-4', 4, 'ALL', 385, true, 'RECT4')">Elegir 4 sabores</button>
+        <button class="btn" onclick="openPicker('Pizza Rectangular', 4, 'ALL', 385, true, 'RECT4')">Elegir 4 sabores</button>
     </div>
 
-    <div class="card">
+                
+    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza Barra</h2>
         <span class="price-badge">$255</span>
-        <h3> (Pizza De Barra)</h3>
         <p>12 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
-        <button class="btn" onclick="openPicker('C-2', 2, 'ALL', 250, true, 'RECT')">Elegir 2 sabores</button>
+        <button class="btn" onclick="openPicker('Pizza Barra', 2, 'ALL', 250, true, 'RECT')">Elegir 2 sabores</button>
     </div>
 
-    <div class="card">
-        <span class="price-badge">$320</span>
-        <h3>Paquete 2</h3>
-        <p>2 Pizzas Grandes (Hawaiana, Pepperoni, Ranchera) + Refresco 2L</p>
-        <button class="btn" onclick="openPicker('Paquete 2', 2, ['HAWAIANA', 'PEPPERONI', 'RANCHERA'], 320, true)">Elegir 2 sabores</button>
+                
+    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza Cuadrada</h2>
+        <span class="price-badge">$315</span>
+        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <button class="btn" onclick="openPicker('Pizza Cuadrada', 2, 'ALL', 315, true, 'RECT')">Elegir 2 sabores</button>
     </div>
 
-    <div class="card">
-        <h3>Paquete 3</h3>
-        <p>3 Pizzas A Elegir Grandes O Familiaress + Refresco 2L</p>
-        <div class="grid-2x1">
-            <button class="btn btn-sel" onclick="openPicker('P3 Grande', 3, 'ALL', 420, true)">GRANDE $420</button>
-            <button class="btn btn-sel" onclick="openPicker('P3 Familiar', 3, 'ALL', 525, true)">FAMILIAR $525</button>
-        </div>
+               
+    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza D2</h2>
+        <span class="price-badge">$305</span>
+        <h3>Pizza D2</h3>
+        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <button class="btn" onclick="openPicker('Pizza D2', 1, 'ALL', 305, true, 'RECT')">Elegir  sabor</button>
     </div>
 
-    <div class="card">
-        <span class="price-badge">$250</span>
-        <h3>C-2 (Rectangular)</h3>
-        <p>12 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2L</p>
-        <button class="btn" onclick="openPicker('C-2', 2, 'ALL', 250, true, 'RECT')">Elegir 2 sabores</button>
+               
+    <div class="card">  <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">pizza De Corazon</h2>
+        <span class="price-badge">$265</span>
+        <h3>Pizza De Corazon</h3>
+        <p>16 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 1.75Lts</p>
+        <button class="btn" onclick="openPicker('Pizza Corazon', 1, 'ALL', 265, true, 'RECT')">Elegir  sabor</button>
     </div>
 
-    <div class="card">
-        <span class="price-badge">$370</span>
-        <h3>C-4 (Rectangular)</h3>
-        <p>24 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2L</p>
-        <button class="btn" onclick="openPicker('C-4', 4, 'ALL', 370, true, 'RECT4')">Elegir 4 sabores</button>
-    </div>
-
-        <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">Especialidades al 2x1</h2>
+       <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">Especialidades al 2x1</h2>
     <div class="grid-2x1">
-        <div class="box-2x1" onclick="openPicker('2x1 Chica', 2, 'ALL', 190)">
-            <strong>CHICA</strong><br>$190<br><span class="rebanadas">6 Rebanadas</span>
+        <div class="box-2x1" onclick="openPicker('2x1 Chica', 2, 'ALL', 175)">
+            <strong>CHICA</strong><br>$175<br><span class="rebanadas">6 Rebanadas</span>
         </div>
-        <div class="box-2x1" onclick="openPicker('2x1 Mediana', 2, 'ALL', 270)">
-            <strong>MEDIANA</strong><br>$270<br><span class="rebanadas">8 Rebanadas</span>
+        <div class="box-2x1" onclick="openPicker('2x1 Mediana', 2, 'ALL', 260)">
+            <strong>MEDIANA</strong><br>$260<br><span class="rebanadas">8 Rebanadas</span>
         </div>
-        <div class="box-2x1" onclick="openPicker('2x1 Grande', 2, 'ALL', 325)">
-            <strong>GRANDE</strong><br>$325<br><span class="rebanadas">8 Rebanadas</span>
+        <div class="box-2x1" onclick="openPicker('2x1 Grande', 2, 'ALL', 305)">
+            <strong>GRANDE</strong><br>$305<br><span class="rebanadas">8 Rebanadas</span>
         </div>
-        <div class="box-2x1" onclick="openPicker('2x1 Familiar', 2, 'ALL', 375, true)">
-            <strong>FAMILIAR</strong><br>$375<br><span class="rebanadas">10 Rebanadas + Refresco</span>
+        <div class="box-2x1" onclick="openPicker('2x1 Familiar', 2, 'ALL', 365, true)">
+            <strong>FAMILIAR</strong><br>$365<br><span class="rebanadas">12 Rebanadas + Refresco</span>
         </div>
     </div>
-
 
     <!-- SPAGHETTI AGREGADO -->
-    <div class="card" style="margin-top:20px;">
-        <span class="price-badge">$90</span>
-        <h3>Spaghetti</h3>
-        <p>Orden para 2 personas</p>
-        <button class="btn btn-sel" onclick="addToCartDirect('Spaghetti', 90)">Agregar spaghetti</button>
+    <div class="card"> <h2 style="color:var(--yellow); text-align:center; margin:30px 0;">Complementos</h2>
+           <h3>La Orden de Spaghetti son Para 2 Personas</h3>
+        <div class="card"></div>
+        <span class="price-badge">$110</span>
+        <h3>Spaghetti Hawaiano</h3>
+        <p>piña, jamon, crema, mantequilla y queso</p><button class="btn btn-sel" onclick="addToCartDirect('Spaghetti Hawiano', 110)">Agregar al carrito</button>
+        <div class="card"></div>
+         <span class="price-badge">$100</span>
+        <h3>Spaghetti Italiano</h3>
+        <p>jamon, pure, mantequilla y queso</p><button class="btn btn-sel" onclick="addToCartDirect('Spaghetti Italiano', 100)">Agregar al carrito</button>
+        <div class="card"></div>
+         <span class="price-badge">$110</span>
+        <h3>Spaghetti a la Bologñesa</h3>
+        <p>carne molida,pure,mantequilla y queso</p><button class="btn btn-sel" onclick="addToCartDirect('Spaghetti Bologñesa', 110)">Agregar al carrito</button>
     </div>
 </div>
 
@@ -153,7 +154,7 @@
         <h2 id="pickerTitle"></h2>
         <div id="visual-preview-modal" class="visual-box"></div>
         <div id="refresco-area" style="display:none; background:#222; padding:10px; border-radius:8px; margin-bottom:10px;">
-            <p><strong>Refresco 2L:</strong></p>
+            <p><strong>Refresco 1.75LTS:</strong></p>
             <select id="sel-refresco" onchange="updateCocaExtra()">
                 <option value="Sabor">Sabor (Cualquier sabor disponible.)</option>
                 <option value="Coca">Cambiar a Coca Cola (+ $15.00)</option>
@@ -211,7 +212,7 @@
 
 <script>
     const especialidades = [
-        {n: "SUPER ABY'S", i: "Atún, chipotle, cebolla, aguacate, mayonesa"},
+        {n: "SUPER ABYS", i: "atun,chipotle,cebolla, aguacate y mayonesas"},
         {n: "HAWAIANA TRADICIONAL", i: "Jamón y piña"},
         {n: "HAWAIANA INTERNACIONAL", i: "Jamón, piña, cerezas y durazno"},
         {n: "PASTOR ESPECIAL", i: "Carne al pastor, piña, cebolla y chipotle"},
@@ -272,7 +273,7 @@
     }
 
     function addToCartDirect(name, price) {
-        cart.push({type: name, flavors: ['Orden Estándar'], price: price, extra: 0, hasRef: false});
+        cart.push({type: name, flavors: ['Spaghetti'], price: price, extra: 0, hasRef: false});
         updateStats();
         alert(name + " agregado al carrito");
     }
