@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abys pizzas - Ordena Aqui</title>
     <style>
-        :root { --red:#e8360edb; --dark:#210303; --gray:#250404; --yellow:#ffb703; --white:#ffffff; --green:#25d366; --blue:#009ee3; }
+        :root { --red:#e8360edb; --dark:#3b3a3a; --gray:#250404; --yellow:#ffb703; --white:#ffffff; --green:#25d366; --blue:#009ee3; }
         body { font-family:'Segoe UI',sans-serif; background:var(--dark); color:var(--white); margin:0; padding-bottom:100px; }
         header { background:#000; padding:25px; text-align:center; border-bottom:4px solid var(--red); }
         .info-header { font-size:0.9rem; color:#ccc; margin-top:10px; line-height:1.4; }
@@ -77,7 +77,8 @@
             <button class="btn btn-sel" onclick="openPicker('Super promos 3 Familiares',3,515,true,'familiar')">3 Familiares $515</button>
         </div>
     </div>
-
+    
+   <div class="card">
     <h2 style="color:var(--yellow);text-align:center;margin:30px 0;">paquete lo lleves</h2>
     <div class="grid-2x1">
         <div class="box-2x1" onclick="openPicker('Paquete 1',1,175,false,'grande')">
@@ -92,7 +93,8 @@
         <div class="box-2x1" onclick="openPicker('Paquete 4',2,375,true,'familiar')">
             <strong>PAQUETE 4</strong><br>$375<br><span style="font-size:0.8rem;">2 Pizzas Familiares<br>+ Refresco 2Lts</span>
         </div>
-    </div>
+     </div>
+    </div>   
 
     <!-- RECTANGULARES sin mitad ni orilla extra -->
     <div class="card">
@@ -103,8 +105,8 @@
         <button class="btn" onclick="openPickerRect('Pizza Rectangular',4,385,true)">Elegir 4 sabores</button>
     </div>
     <div class="card">
-        <img src="images/IMG_0366.jpeg" style="width:100%; border-radius:10px; margin:10px 0; object-fit:contain; max-height:250px; background:#000;">
         <h2 style="color:var(--yellow);text-align:center;margin:30px 0;">pizza Barra</h2>
+        <img src="images/IMG_0366.jpeg" style="width:100%; border-radius:10px; margin:10px 0; object-fit:contain; max-height:250px; background:#000;">
         <span class="price-badge">$255</span>
         <p>12 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPickerRect('Pizza Barra',2,250,true)">Elegir 2 sabores</button>
@@ -116,8 +118,8 @@
         <button class="btn" onclick="openPickerRect('Pizza Cuadrada',2,315,true)">Elegir 2 sabores</button>
     </div>
     <div class="card">
-        <img src="images/IMG_0368.jpeg" style="width:100%; border-radius:10px; margin:10px 0; object-fit:contain; max-height:250px; background:#000;">
         <h2 style="color:var(--yellow);text-align:center;margin:30px 0;">pizza De Dedos</h2>
+        <img src="images/IMG_0368.jpeg" style="width:100%; border-radius:10px; margin:10px 0; object-fit:contain; max-height:250px; background:#000;">
         <span class="price-badge">$305</span>
         <p>12 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPickerRect('Pizza D2',1,305,true)">Elegir sabor</button>
@@ -129,7 +131,8 @@
         <p>14 rebanadas, orilla rellena de queso crema y ajonjolí + Refresco 2Lts</p>
         <button class="btn" onclick="openPickerRect('Pizza Corazon',1,265,true)">Elegir sabor</button>
     </div>
-
+    
+   <div class="card">
     <h2 style="color:var(--yellow);text-align:center;margin:30px 0;">Especialidades al 2x1</h2>
     <div class="grid-2x1">
         <div class="box-2x1" onclick="openPicker('2x1 Chica',   2,175,false,'chica')"><strong>CHICA</strong><br>$175<br><span>6 Rebanadas</span></div>
@@ -137,6 +140,7 @@
         <div class="box-2x1" onclick="openPicker('2x1 Grande',  2,305,false,'grande')"><strong>GRANDE</strong><br>$305<br><span>8 Rebanadas</span></div>
         <div class="box-2x1" onclick="openPicker('2x1 Familiar',2,365,true,'familiar')"><strong>FAMILIAR</strong><br>$365<br><span>12 Rebanadas</span></div>
     </div>
+   </div>
 
     <div class="card">
         <h2 style="color:var(--yellow);text-align:center;margin:30px 0;">Complementos</h2>
