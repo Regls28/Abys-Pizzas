@@ -40,6 +40,124 @@
         #visual-preview-modal .box-cell:hover { background:#1a0000; }
         #visual-preview-modal .box-cell.selected { background:#3a0000; border-color:var(--red); border-style:solid; }
 
+        /* ── VISOR RECTANGULO / CUADRADO (logica de Richard) ── */
+        .visual-box.shape-rect,
+        .visual-box.shape-square {
+            display: grid;
+            gap: 3px;
+            margin: 15px auto;
+            border: 6px solid var(--yellow);
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #b5661f, #6b3a10);
+            box-shadow: 0 16px 34px rgba(0,0,0,.45);
+            padding: 0;
+        }
+        .visual-box.shape-rect { width: 100%; aspect-ratio: 1.7 / 1; }
+        .visual-box.shape-square { width: min(260px, 70vw); aspect-ratio: 1; }
+
+        .rect-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 0.72rem;
+            font-weight: bold;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,.7);
+            background: rgba(10,8,6,.45);
+            transition: background .15s;
+            word-break: break-word;
+            min-width: 0;
+            min-height: 0;
+        }
+        .rect-cell.selected { background: rgba(255,183,3,.85); color:#1a1200; text-shadow:none; }
+        .rect-cell.active-slot { box-shadow: inset 0 0 0 3px var(--red); background: rgba(255,255,255,.16); }
+        .rect-cell.active-slot.selected { background: rgba(255,183,3,1); }
+
+        /* ── VISOR CIRCULO (Pizza D2) ── */
+        .visual-box.shape-circle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 14px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            min-height: auto;
+        }
+        .pizza-circle-abys {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid var(--yellow);
+            box-shadow: inset 0 0 0 3px rgba(0,0,0,.32), 0 12px 26px rgba(0,0,0,.5);
+            background: radial-gradient(circle, #f5c64c 0 58%, #d8842d 59% 68%, #88331d 69%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 16%;
+            cursor: pointer;
+            color: #fff7ee;
+            font-weight: bold;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,.65);
+        }
+        .pizza-circle-abys.selected { background: rgba(255,183,3,.9); color:#1a1200; text-shadow:none; }
+        .pizza-circle-abys.active-slot { box-shadow: inset 0 0 0 4px var(--red), inset 0 0 0 3px rgba(0,0,0,.32); }
+
+        /* ── VISOR CORAZON (Pizza Corazon) ── */
+        .visual-box.shape-heart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 14px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            min-height: auto;
+        }
+        .heart-abys {
+            position: relative;
+            width: 210px;
+            height: 190px;
+            cursor: pointer;
+            filter: drop-shadow(0 10px 18px rgba(0,0,0,.5));
+        }
+        .heart-abys svg { width: 100%; height: 100%; display: block; }
+        .heart-abys path {
+            fill: #8a3a12;
+            stroke: var(--yellow);
+            stroke-width: 3;
+            transition: fill .15s, stroke .15s;
+        }
+        .heart-abys.selected path { fill: var(--yellow); }
+        .heart-abys.active-slot path { stroke: var(--red); stroke-width: 5; }
+        .heart-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 22% 24% 8%;
+            color: #fff7ee;
+            font-weight: bold;
+            font-size: 0.78rem;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,.65);
+            pointer-events: none;
+        }
+        .heart-abys.selected .heart-label { color: #1a1200; text-shadow: none; }
+
         /* ── CHECKBOXES POR PIZZA ── */
         .pizzas-extras-row { display:grid; gap:8px; margin-top:4px; }
         .pizza-extras-col { border:1px solid #333; border-radius:8px; padding:8px; background:#150000; }
@@ -192,7 +310,7 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     MODAL RECT — igual al original (sin cambios)
+     MODAL RECT — logica de Richard (grid rect/cuadrado)
 ══════════════════════════════════════════ -->
 <div id="pickerModal2" class="modal">
   <div class="modal-content">
@@ -205,6 +323,7 @@
         </select>
     </div>
     <div id="visual-preview-modal2" class="visual-box"></div>
+    <p id="p-total2" style="text-align:right;color:var(--yellow);font-size:0.85rem;margin:8px 0;"></p>
     <div id="flavorList2" style="max-height:300px;overflow-y:auto;background:#000;"></div>
     <button class="btn" style="background:var(--green);" onclick="confirmOrder2()">✅ AGREGAR AL CARRITO</button>
     <button class="btn btn-sel" onclick="closeModal2()">Cancelar</button>
@@ -223,7 +342,7 @@
     <input type="text" id="c-tel"     placeholder="Teléfono">
     <input type="text" id="c-colonia" placeholder="Colonia">
     <input type="text" id="c-dir"     placeholder="Dirección y Numero">
-    <input type="text" id="c-colonia" placeholder="Entre que calles">
+    <input type="text" id="c-entrecalles" placeholder="Entre que calles">
     <div style="display:flex;">
         <input type="text" id="c-zaguan"  placeholder="Color Zaguán"  style="width:48%;">
         <input type="text" id="c-fachada" placeholder="Color Fachada" style="width:48%;">
@@ -286,8 +405,8 @@ const linkMP="https://link.mercadopago.com.mx/abyspizzas1";
 // slots[i] = {sabor1:'', sabor2:'', mitad:false, orilla:false}
 let cur=null, slots=[], activePizza=-1, activeHalf=1;
 
-// Estado picker rect (original)
-let cur2=null;
+// Estado picker rect (logica de Richard: grid rect/cuadrado)
+let cur2=null, slots2=[], activeSlot2=0;
 
 // ── ABRIR PICKER NORMAL ──────────────────────
 function openPicker(type,limit,price,hasRef,size){
@@ -475,18 +594,117 @@ function confirmOrder(){
 
 function closeModal(){ document.getElementById('pickerModal').style.display='none'; }
 
-// ── PICKER RECT (original intacto) ───────────
+// ── PICKER RECT / CUADRADO (logica de Richard: grid + slot activo) ───────────
 function openPickerRect(type,limit,price,hasRef){
-    cur2={type,limit,basePrice:price,hasRef,flavors:[],refresco:'Sabor',cocaExtra:0};
+    cur2={type,limit,basePrice:price,hasRef,refresco:'Sabor',cocaExtra:0,
+          shape: type.indexOf('Cuadrada')>=0 ? 'square'
+               : type.indexOf('D2')>=0 ? 'circle'
+               : type.indexOf('Corazon')>=0 ? 'heart'
+               : 'rect'};
+    slots2=[];
+    for(let i=0;i<limit;i++) slots2.push('');
+    activeSlot2=0;
+
     document.getElementById('pickerTitle2').innerText=type;
     document.getElementById('refresco-area2').style.display=hasRef?'block':'none';
     document.getElementById('sel-refresco2').value='Sabor';
+    cur2.cocaExtra=0;
 
+    renderVisorRect();
+    renderFlavorList2();
+    document.getElementById('pickerModal2').style.display='block';
+}
+
+function renderVisorRect(){
     const vBox=document.getElementById('visual-preview-modal2');
-    vBox.style.gridTemplateColumns=`repeat(${limit},1fr)`;
+    vBox.className='visual-box shape-'+cur2.shape;
     vBox.innerHTML='';
-    for(let i=0;i<limit;i++) vBox.innerHTML+=`<div class="box-cell" id="rv-${i}">Sabor ${i+1}</div>`;
 
+    if(cur2.shape==='circle'){
+        renderCircleSlots(vBox);
+    } else if(cur2.shape==='heart'){
+        renderHeartSlots(vBox);
+    } else {
+        renderGridSlots(vBox);
+    }
+
+    recalcTotal2();
+}
+
+function renderGridSlots(vBox){
+    const total=slots2.length;
+    const cols=Math.ceil(Math.sqrt(total));
+    const rows=Math.ceil(total/cols);
+    vBox.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+    vBox.style.gridTemplateRows=`repeat(${rows},1fr)`;
+
+    slots2.forEach((sabor,i)=>{
+        const cell=document.createElement('div');
+        cell.className='rect-cell'
+            +(sabor?' selected':'')
+            +(activeSlot2===i?' active-slot':'');
+        cell.innerText=sabor||('Sabor '+(i+1));
+        cell.onclick=()=>startPickingRect(i);
+        vBox.appendChild(cell);
+    });
+}
+
+function renderCircleSlots(vBox){
+    slots2.forEach((sabor,i)=>{
+        const circle=document.createElement('div');
+        circle.className='pizza-circle-abys'
+            +(sabor?' selected':'')
+            +(activeSlot2===i?' active-slot':'');
+        circle.innerText=sabor||('Sabor '+(i+1));
+        circle.onclick=()=>startPickingRect(i);
+        vBox.appendChild(circle);
+    });
+}
+
+function renderHeartSlots(vBox){
+    slots2.forEach((sabor,i)=>{
+        const heart=document.createElement('div');
+        heart.className='heart-abys'
+            +(sabor?' selected':'')
+            +(activeSlot2===i?' active-slot':'');
+        heart.onclick=()=>startPickingRect(i);
+        heart.innerHTML=`<svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg"><path d="M50,90 C50,90 5,58 5,30 C5,12 20,2 35,2 C43,2 49,6 50,14 C51,6 57,2 65,2 C80,2 95,12 95,30 C95,58 50,90 50,90 Z"/></svg><div class="heart-label">${sabor||('Sabor '+(i+1))}</div>`;
+        vBox.appendChild(heart);
+    });
+}
+
+function startPickingRect(i){
+    activeSlot2=i;
+    renderVisorRect();
+}
+
+function pickRect(nombre){
+    if(activeSlot2<0) activeSlot2=0;
+    slots2[activeSlot2]=nombre;
+
+    // Avanza automaticamente al siguiente slot vacio
+    let next=-1;
+    for(let i=0;i<slots2.length;i++){
+        if(!slots2[i]){ next=i; break; }
+    }
+    activeSlot2 = next>=0 ? next : 0;
+
+    renderVisorRect();
+}
+
+function recalcTotal2(){
+    if(!cur2) return;
+    const total=cur2.basePrice+cur2.cocaExtra;
+    document.getElementById('p-total2').innerText='Total: $'+total;
+}
+
+function updateCocaExtra2(){
+    const v=document.getElementById('sel-refresco2').value;
+    cur2.refresco=v; cur2.cocaExtra=v==='Coca'?15:0;
+    recalcTotal2();
+}
+
+function renderFlavorList2(){
     const list=document.getElementById('flavorList2');
     list.innerHTML='';
     especialidades.forEach(e=>{
@@ -494,23 +712,13 @@ function openPickerRect(type,limit,price,hasRef){
             <div><strong>${e.n}</strong><br><small style="color:#888;">${e.i}</small></div>
             <button class="flavor-btn" onclick="pickRect('${e.n}')">+</button></div>`;
     });
-    document.getElementById('pickerModal2').style.display='block';
 }
 
-function pickRect(n){
-    if(cur2.flavors.length<cur2.limit){
-        cur2.flavors.push(n);
-        const c=document.getElementById(`rv-${cur2.flavors.length-1}`);
-        c.innerText=n; c.classList.add('selected');
-    }
-}
-function updateCocaExtra2(){
-    const v=document.getElementById('sel-refresco2').value;
-    cur2.refresco=v; cur2.cocaExtra=v==='Coca'?15:0;
-}
 function confirmOrder2(){
-    if(cur2.flavors.length<cur2.limit){alert("Elige todos los sabores");return;}
-    cart.push({type:cur2.type,flavors:cur2.flavors,price:cur2.basePrice+cur2.cocaExtra,hasRef:cur2.hasRef,refresco:cur2.refresco});
+    for(let i=0;i<slots2.length;i++){
+        if(!slots2[i]){ alert(`Elige el sabor ${i+1}`); return; }
+    }
+    cart.push({type:cur2.type,flavors:slots2.slice(),price:cur2.basePrice+cur2.cocaExtra,hasRef:cur2.hasRef,refresco:cur2.refresco});
     closeModal2();updateStats();
 }
 function closeModal2(){ document.getElementById('pickerModal2').style.display='none'; }
@@ -560,7 +768,7 @@ function sendWhatsApp(){
     const d=document.getElementById('c-dir').value;
     if(!n||!d){alert("Faltan datos del cliente");return;}
     let msg=`*Abys pizzas - Nuevo Pedido*\n`;
-    msg+=`Cliente: ${n}\nDir: ${d}\nCol: ${document.getElementById('c-colonia').value}\n`;
+    msg+=`Cliente: ${n}\nDir: ${d}\nCol: ${document.getElementById('c-colonia').value}\nEntre calles: ${document.getElementById('c-entrecalles').value}\n`;
     msg+=`Zaguán: ${document.getElementById('c-zaguan').value} | Fachada: ${document.getElementById('c-fachada').value}\n`;
     msg+=`GPS: ${userLocation}\n----------------\n`;
     cart.forEach(i=>{
@@ -594,3 +802,4 @@ function closeCart(){ document.getElementById('cartModal').style.display='none';
 </script>
 </body>
 </html>
+
